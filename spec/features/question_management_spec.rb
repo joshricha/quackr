@@ -4,6 +4,18 @@ RSpec.feature 'question management', focus: true do
 
   context 'when logged in' do
 
+    let(:user) do
+      user = User.new(:email => 'test@test.com')
+      user.username = 'testaccount'
+      user.password = user.password_confirmation = 'password'
+      user.save
+      user
+    end
+
+    before(:each) do
+      login_as(user, :scope => :user)
+    end
+
     scenario 'view question list' do
       q1 = Question.create title: 'first question', body: 'win'
       q2 = Question.create title: 'second question', body: 'double win'
@@ -49,9 +61,16 @@ RSpec.feature 'question management', focus: true do
       visit questions_path
 
     #expect to find only 10 times 'Title' on the page
-      expect(find_field('Title').value).to_not have_text "hard question 11"
+      expect(page).not_to have_text "hard question 9"
+
       
     end
+
+    # scenario 'page two to have text 11' do 
+
+
+
+    # end
 
   context 'when logged out' do
 

@@ -12,7 +12,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 gem 'redcarpet'
 
-gem 'bootstrap-sass', '~> 3.3.1'
+
 gem 'kaminari'
 
 group :development, :test do
@@ -21,3 +21,4 @@ group :development, :test do
   gem 'simplecov', :require => false # for code coverage
 end
 
+gem 'devise'

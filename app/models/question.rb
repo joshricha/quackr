@@ -1,7 +1,7 @@
 class Question < ActiveRecord::Base
   validates :title, :presence => true
 
-  paginates_per 10
+  # paginates_per 10
 
   def body_html
     return "" unless self.body
