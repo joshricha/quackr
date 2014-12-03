@@ -31,3 +31,4 @@ group :development, :test do
   gem 'simplecov', :require => false # for code coverage
 end
 
+gem 'devise'
