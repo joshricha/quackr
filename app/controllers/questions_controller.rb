@@ -3,12 +3,6 @@ class QuestionsController < ApplicationController
 
   def index
     @questions = Question.all
-
-    if params[:status] == "draft"
-      @questions = Question.where(status: "draft")
-    elsif params[:status] == "published"
-      @questions = Question.where(status: "published")
-    end
   end
 
   def edit
@@ -30,6 +24,12 @@ class QuestionsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def status_category
+    @questions = Question.where(status: params[:status])
+
+    render :index
   end
 
   def find_status

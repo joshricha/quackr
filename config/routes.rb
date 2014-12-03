@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   root 'pages#index'
 
-  get '/questions/:status' => 'questions#index'
+  get '/questions/:status' => 'questions#status_category'
 
   resources :categories, :only => [:index]
   resources :questions, :only => [:edit, :update, :new, :create, :index]
