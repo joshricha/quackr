@@ -2,6 +2,11 @@ class QuestionsController < ApplicationController
 
   def index
     @questions = Question.all
+    @questions = Question.order(:id).page(params[:page]).per(10)
+  end
+
+  def show
+    @questions = Question.all
   end
 
   def edit
