@@ -1,7 +1,9 @@
 class QuestionsController < ApplicationController
+  helper_method :find_status
 
   def index
     @questions = Question.all
+
   end
 
   def edit
@@ -17,12 +19,16 @@ class QuestionsController < ApplicationController
 
   def create
     @question = Question.new(question_params)
-    
+
     if @question.save
       redirect_to edit_question_path(@question), :notice => 'Question is successfully saved'
     else
       render :new
-    end 
+    end
+  end
+
+  def find_status
+    Question.select(:status).map(&:status).uniq
   end
 
   private
