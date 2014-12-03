@@ -4,6 +4,18 @@ RSpec.feature 'question management', focus: true do
 
   context 'when logged in' do
 
+    let(:user) do
+      user = User.new(:email => 'test@test.com')
+      user.username = 'testaccount'
+      user.password = user.password_confirmation = 'password'
+      user.save
+      user
+    end
+
+    before(:each) do
+      login_as(user, :scope => :user)
+    end
+
     scenario 'view question list' do
       q1 = Question.create title: 'first question', body: 'win'
       q2 = Question.create title: 'second question', body: 'double win'
