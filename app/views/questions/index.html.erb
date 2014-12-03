@@ -1,4 +1,6 @@
-<%  %>
+<% find_status.each do |category| %>
+<a href="/questions/<%= category %>"><%= category %></a>
+<% end %>
 
 <% @questions.each do |question| %>
   <p><%= question.title %></p>

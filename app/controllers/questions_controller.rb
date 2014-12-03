@@ -4,6 +4,11 @@ class QuestionsController < ApplicationController
   def index
     @questions = Question.all
 
+    if params[:status] == "draft"
+      @questions = Question.where(status: "draft")
+    elsif params[:status] == "published"
+      @questions = Question.where(status: "published")
+    end
   end
 
   def edit
