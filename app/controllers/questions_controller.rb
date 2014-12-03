@@ -28,7 +28,6 @@ class QuestionsController < ApplicationController
 
   def status_category
     @questions = Question.where(status: params[:status])
-
     render :index
   end
 
