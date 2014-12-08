@@ -19,6 +19,10 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'simplecov', :require => false # for code coverage
+  gem 'pry-rails'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'meta_request'
 end
 
 gem 'devise'
