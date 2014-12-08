@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature 'user management', focus: true do
+RSpec.feature 'user management' do
 
   scenario 'view user list'
 

@@ -2,7 +2,7 @@ require 'rails_helper'
 include Warden::Test::Helpers
 Warden.test_mode!
 
-RSpec.feature 'home page', focus: true do
+RSpec.feature 'home page' do
 
   context 'when logged in' do
 
