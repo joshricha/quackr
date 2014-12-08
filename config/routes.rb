@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   get '/questions/:status' => 'questions#status_category'
 
-  resources :categories, :only => [:index]
+  resources :categories
   resources :questions, :only => [:edit, :update, :new, :create, :index]
 
 end

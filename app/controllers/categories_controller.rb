@@ -4,9 +4,14 @@ class CategoriesController < ApplicationController
     @categories = Category.all
   end
 
-  def create()
+  def create
+    @categories = Category.all
     # need to get the new category name from a form
-    # name = params[:name]
+    name = params[:name]
 
     Category.create(name: name) if current_user.admin?
+
+    render:index
   end
+
+end
