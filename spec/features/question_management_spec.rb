@@ -51,6 +51,23 @@ RSpec.feature 'question management', focus: true do
 
   end
 
+    scenario 'show only 10 questions per page' do
+
+      30.times do |n|
+        Question.create(title:"hard question #{n}", body: '')
+      end
+
+      visit questions_path
+
+    #expect to find only 10 times 'Title' on the page
+      expect(page).not_to have_text "hard question 9"
+      expect(Question.page(2)).not_to have_text "hard question 24"
+      expect(Question.page(3)).to have_text("hard question 26")
+    end
+
+
+ 
+
   context 'when logged out' do
 
     scenario 'view question' do
