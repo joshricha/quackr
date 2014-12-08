@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature 'category management', focus: true do
+RSpec.feature 'category management' do
 
   context 'when logged in' do
 
